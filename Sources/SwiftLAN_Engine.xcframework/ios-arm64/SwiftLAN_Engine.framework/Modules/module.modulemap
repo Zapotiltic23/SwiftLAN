@@ -1,0 +1,11 @@
+framework module SwiftLAN_Engine {
+  umbrella header "SwiftLAN_Engine.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftLAN_Engine.Swift {
+    header "SwiftLAN_Engine-Swift.h"
+    requires objc
+}
