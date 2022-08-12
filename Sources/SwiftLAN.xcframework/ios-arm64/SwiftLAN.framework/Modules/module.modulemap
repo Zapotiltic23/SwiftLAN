@@ -1,0 +1,4 @@
+framework module SwiftLAN {
+  header "SwiftLAN-Swift.h"
+  requires objc
+}

@@ -1,0 +1,311 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios15.4-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SwiftLAN
+import Accelerate
+import Foundation
+import Swift
+import _Concurrency
+precedencegroup ExponentiationPrecedence {
+  associativity: right
+  higherThan: MultiplicationPrecedence
+}
+precedencegroup PowerPrecedence {
+  associativity: left
+  assignment: false
+  higherThan: MultiplicationPrecedence
+}
+postfix operator <<<
+postfix operator <<
+postfix operator <
+postfix operator ~
+infix operator ^ : ExponentiationPrecedence
+extension Swift.Float : SwiftLAN.GeneralizedElement {
+}
+extension Swift.Double : SwiftLAN.GeneralizedElement {
+}
+extension SwiftLAN.Matrix : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: [Scalar]...)
+  public typealias ArrayLiteralElement = [Scalar]
+}
+extension SwiftLAN.Matrix : Swift.AdditiveArithmetic {
+  public static var zero: SwiftLAN.Matrix<Scalar> {
+    get
+  }
+}
+extension SwiftLAN.Matrix : Swift.Sequence {
+  public func makeIterator() -> Swift.AnyIterator<Swift.ArraySlice<Scalar>>
+}
+extension SwiftLAN.Matrix {
+  public static func ^ (A: SwiftLAN.Matrix<Scalar>, c: Swift.Int) -> SwiftLAN.Matrix<Scalar>
+  public static func + <T>(lhs: SwiftLAN.Matrix<T>, rhs: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func - <T>(lhs: SwiftLAN.Matrix<T>, rhs: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func * (lhs: SwiftLAN.Matrix<Scalar>, rhs: SwiftLAN.Matrix<Scalar>) -> SwiftLAN.Matrix<Scalar>
+  public static func * <T>(c: T, A: SwiftLAN.Matrix<Scalar>) -> SwiftLAN.Matrix<Scalar>
+  public static func * <T>(A: SwiftLAN.Matrix<Scalar>, c: T) -> SwiftLAN.Matrix<Scalar>
+  public static func == <T>(lhs: SwiftLAN.Matrix<T>, rhs: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+}
+extension SwiftLAN.Matrix : Swift.Collection {
+  public subscript(row: Swift.Int) -> Swift.ArraySlice<Scalar> {
+    get
+  }
+  public var startIndex: Swift.Int {
+    get
+  }
+  public var endIndex: Swift.Int {
+    get
+  }
+  public func index(after i: Swift.Int) -> Swift.Int
+  public typealias Element = Swift.ArraySlice<Scalar>
+  public typealias Index = Swift.Int
+  public typealias Indices = Swift.DefaultIndices<SwiftLAN.Matrix<Scalar>>
+  public typealias Iterator = Swift.AnyIterator<Swift.ArraySlice<Scalar>>
+  public typealias SubSequence = Swift.Slice<SwiftLAN.Matrix<Scalar>>
+}
+extension SwiftLAN.Matrix : Swift.Equatable {
+  public subscript(row: Swift.Int, column: Swift.Int) -> Scalar {
+    get
+    set
+  }
+  public subscript(row row: Swift.Int) -> [Scalar] {
+    get
+    set
+  }
+  public subscript(column column: Swift.Int) -> [Scalar] {
+    get
+    set
+  }
+}
+extension SwiftLAN.Complex {
+  public var real: Scalar {
+    get
+    set
+  }
+  public var imaginary: Scalar {
+    get
+    set
+  }
+  public init(_ real: Scalar, _ imagine: Scalar)
+  public init(real: Scalar)
+  public init(integerLiteral value: Swift.Int)
+  public init(floatLiteral value: Scalar)
+  public init(imagine: Scalar)
+  public subscript(index: Swift.Int) -> Scalar {
+    get
+  }
+  public var radiusSquare: Scalar {
+    get
+  }
+  public var radius: Scalar {
+    get
+  }
+  public var arg: Scalar {
+    get
+  }
+  public var hashValue: Swift.Int {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public static func == (lhs: SwiftLAN.Complex<Scalar>, rhs: SwiftLAN.Complex<Scalar>) -> Swift.Bool
+  public static func + (c1: SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func + (c1: Scalar, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func + (c1: SwiftLAN.Complex<Scalar>, c2: Scalar) -> SwiftLAN.Complex<Scalar>
+  public static func - (c1: SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func - (c1: Scalar, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func - (c1: SwiftLAN.Complex<Scalar>, c2: Scalar) -> SwiftLAN.Complex<Scalar>
+  public static func * (c1: SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func * (c1: Scalar, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func * (c1: SwiftLAN.Complex<Scalar>, c2: Scalar) -> SwiftLAN.Complex<Scalar>
+  public static func / (c1: SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func / (c1: Scalar, c2: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public static func / (c1: SwiftLAN.Complex<Scalar>, c2: Scalar) -> SwiftLAN.Complex<Scalar>
+  public static func ^ (c1: SwiftLAN.Complex<Scalar>, n: Scalar) -> SwiftLAN.Complex<Scalar>
+  public static func ^ (c1: SwiftLAN.Complex<Scalar>, n: Swift.Int) -> SwiftLAN.Complex<Scalar>
+  public static func += (c1: inout SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>)
+  public static func += (c1: inout SwiftLAN.Complex<Scalar>, c2: Scalar)
+  public static func -= (c1: inout SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>)
+  public static func -= (c1: inout SwiftLAN.Complex<Scalar>, c2: Scalar)
+  public static func *= (c1: inout SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>)
+  public static func *= (c1: inout SwiftLAN.Complex<Scalar>, c2: Scalar)
+  public static func /= (c1: inout SwiftLAN.Complex<Scalar>, c2: SwiftLAN.Complex<Scalar>)
+  public static func /= (c1: inout SwiftLAN.Complex<Scalar>, c2: Scalar)
+  public func conjugate() -> SwiftLAN.Complex<Scalar>
+  public func add(_ n: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public func subtract(_ n: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public func multiply(_ n: Scalar) -> SwiftLAN.Complex<Scalar>
+  public func multiply(_ n: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public func divide(_ n: SwiftLAN.Complex<Scalar>) -> SwiftLAN.Complex<Scalar>
+  public func divide(_ n: Scalar) -> SwiftLAN.Complex<Scalar>
+  public func power(_ n: Swift.Int) -> SwiftLAN.Complex<Scalar>
+}
+extension SwiftLAN.Matrix {
+  public static func Multiply_Add_InPlace<T>(_ lhs: SwiftLAN.Matrix<T>, _ rhs: SwiftLAN.Matrix<T>, _ alpha: T) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func mprint<T>(matrixA: SwiftLAN.Matrix<T>, decimalPlaces: Swift.Int) where T : SwiftLAN.GeneralizedElement
+  public static func Constant_Matrix_Multiplication<T>(constant c: T, matrix A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func Matrix_Multiplication<T>(_ A: SwiftLAN.Matrix<T>, _ B: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func SingularValueDecomposition<T>(A: SwiftLAN.Matrix<T>) -> (U: SwiftLAN.Matrix<T>, SingularValues: [T], V: SwiftLAN.Matrix<T>, S: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func pythag<T>(a: T, b: T) -> T where T : SwiftLAN.GeneralizedElement
+  public static func reorderSVD<T>(m: Swift.Int, n: Swift.Int, u: SwiftLAN.Matrix<T>, v: SwiftLAN.Matrix<T>, w: [T]) -> (SwiftLAN.Matrix<T>, SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func SQR<T>(a: T) -> T where T : SwiftLAN.GeneralizedElement
+  public static func SIGN<T>(a: T, b: T) -> T where T : SwiftLAN.GeneralizedElement
+  public static func reshape_v2<T>(target: SwiftLAN.Matrix<T>, rowFrom: Swift.Int, rowTo: Swift.Int, colFrom: Swift.Int, colTo: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func powerMatrix<T>(A: SwiftLAN.Matrix<T>, pow: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func norm<T>(target: SwiftLAN.Matrix<T>, type: Swift.String) -> T where T : SwiftLAN.GeneralizedElement
+  public static func Transpose<T>(matrix: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func SpectralRadius<T>(A: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func EigenPairsRealSchurWithExceptionalShift<T>(A: SwiftLAN.Matrix<T>) -> (eigenvalues: SwiftLAN.ComplexMatrix<T>, eigenvectors: SwiftLAN.ComplexMatrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func balanceMatrix<T>(target: SwiftLAN.Matrix<T>) -> (SwiftLAN.Matrix<T>, SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func hessRealSchurForm<T>(A: SwiftLAN.Matrix<T>) -> (SwiftLAN.Matrix<T>, [Swift.Int]) where T : SwiftLAN.GeneralizedElement
+  public static func similarityTransformsRealSchurForm<T>(target: SwiftLAN.Matrix<T>, A: SwiftLAN.Matrix<T>, perm: [Swift.Int]) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func scaleVectors<T>(vectors: SwiftLAN.Matrix<T>, scales: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func Determinant<T>(matrix: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func Trace<T>(matrix: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func transpose<T>(matrix: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func sum<T>(matrixA: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func getDiagonal<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func diagonal<T>(matrixA: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func repmat<T>(vector: SwiftLAN.Matrix<T>, n: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func inverseMatrix<T>(matrix: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func getMatrixRow<T>(A: SwiftLAN.Matrix<T>, k: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func getMatrixColumn<T>(A: SwiftLAN.Matrix<T>, k: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func absMatrix<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func obtainSubMatrix<T>(A: SwiftLAN.Matrix<T>, row: Swift.Int, column: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func reshape<T>(target: SwiftLAN.Matrix<T>, rowFrom: Swift.Int, rowTo: Swift.Int, colFrom: Swift.Int, colTo: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func embedMatrix<T>(target: SwiftLAN.Matrix<T>, sample: SwiftLAN.Matrix<T>, rowFrom: Swift.Int, rowTo: Swift.Int, colFrom: Swift.Int, colTo: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func dropColumn<T>(A: SwiftLAN.Matrix<T>, index: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func dropRow<T>(A: SwiftLAN.Matrix<T>, index: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func divideConstantMatrix<T>(matrix: SwiftLAN.Matrix<T>, constant: T) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func PowerMethod<T>(sampleMatrix: SwiftLAN.Matrix<T>) -> (eigenValue: T, eigenVector: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func isUpperTriangular<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isLowerTriangular<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func multiplyConstantMatrix<T>(matrixA: SwiftLAN.Matrix<T>, constant: T) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func QR<T>(A: SwiftLAN.Matrix<T>) -> (Q: SwiftLAN.Matrix<T>, R: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func shiftedInversePM<T>(A: SwiftLAN.Matrix<T>, x0: SwiftLAN.Matrix<T>, mu: T) -> (lambda: T, v: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func UpperHessenberg<T>(target: SwiftLAN.Matrix<T>) -> (P: SwiftLAN.Matrix<T>, H: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func QRAlgorithm<T>(A: SwiftLAN.Matrix<T>) -> (V: SwiftLAN.Matrix<T>, D: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func HouseholderVector<T>(x0: SwiftLAN.Matrix<T>) -> (v: SwiftLAN.Matrix<T>, beta: T) where T : SwiftLAN.GeneralizedElement
+  public static func LUdecompositionDoolittle<T>(A: SwiftLAN.Matrix<T>) -> (L: SwiftLAN.Matrix<T>, U: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func InnerProduct<T>(targetA: SwiftLAN.Matrix<T>, targetB: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func GramSmchmidtFactorization<T>(target: SwiftLAN.Matrix<T>) -> (B: SwiftLAN.Matrix<T>, T: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func isDiagonal<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isSymmetric<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isUpperHessenberg<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func eigenValuesVectors<T>(A: SwiftLAN.Matrix<T>) -> (V: SwiftLAN.Matrix<T>, D: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func LUwithScaledRowPivoting<T>(A: SwiftLAN.Matrix<T>) -> (P: SwiftLAN.Matrix<T>, L: SwiftLAN.Matrix<T>, U: SwiftLAN.Matrix<T>, swaps: Swift.Int) where T : SwiftLAN.GeneralizedElement
+  public static func isPositiveDefinite<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func CholeskyDecomposition<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func jacobiEigen<T>(A: SwiftLAN.Matrix<T>) -> (eigenvectors: SwiftLAN.Matrix<T>, eigenvalues: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func sum<T>(A: SwiftLAN.Matrix<T>) -> (vector: SwiftLAN.Matrix<T>, double: T) where T : SwiftLAN.GeneralizedElement
+  public static func principalSubmatrices<T>(A: SwiftLAN.Matrix<T>) -> [SwiftLAN.Matrix<T>] where T : SwiftLAN.GeneralizedElement
+  public static func PrincipalMinors<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func charPolyCoefficientsFaddeevLeverrier<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func realMatrix<T>(C: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func imaginaryMatrix<T>(C: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func conjugateMatrix<T>(target: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func SWAPelements<T>(a: T, b: T) -> (aa: T, bb: T) where T : SwiftLAN.GeneralizedElement
+  public static func QRAlgorithmBasic<T>(A: SwiftLAN.Matrix<T>) -> (T: SwiftLAN.Matrix<T>, Z: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func FrancisQRStep<T>(H0: SwiftLAN.Matrix<T>, Q0: SwiftLAN.Matrix<T>) -> (H: SwiftLAN.Matrix<T>, Q: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func RealSchurFormDecomposition<T>(A: SwiftLAN.Matrix<T>) -> (Q: SwiftLAN.Matrix<T>, T: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func solveMatrixInverseLU<T>(matrixA: SwiftLAN.Matrix<T>, matrixB: SwiftLAN.Matrix<T>, lu: SwiftLAN.Matrix<T>, indexes: [Swift.Int]) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveVectorInverseLU<T>(vectorA: SwiftLAN.Matrix<T>, vectorB: SwiftLAN.Matrix<T>, lu: SwiftLAN.Matrix<T>, indexes: [Swift.Int]) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func inverseLU<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func CroutsLUwithPartialImplicitPivoting<T>(A: SwiftLAN.Matrix<T>) -> (SwiftLAN.Matrix<T>, [Swift.Int]) where T : SwiftLAN.GeneralizedElement
+  public static func isSingular<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func conditionNumber<T>(A: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func ElementStringtoArray<T>(matrixString: Swift.String) -> [T] where T : SwiftLAN.GeneralizedElement
+  public static func pseudoInverseMoorePenrose<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func rationalApproximation(of x0: Swift.Double, withPrecision eps: Swift.Double = 1.0E-6) -> SwiftLAN.Matrix<Scalar>.Rational
+  public static func Rank<T>(A: SwiftLAN.Matrix<T>) -> Swift.Int where T : SwiftLAN.GeneralizedElement
+  public static func Nullity<T>(A: SwiftLAN.Matrix<T>) -> Swift.Int where T : SwiftLAN.GeneralizedElement
+  public static func isCholesky<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isGramSchmidt<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func adjoint<T>(A: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemGaussSeidel<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemConjugateGradient<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemKaczmarz<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemJacobi<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemPLU<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemOrdinaryLeastSquares<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemIterativelyReweightedLeastSquares<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemPseudoInverse<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func solveSystemSuccessiveOverRelaxation<T>(A: SwiftLAN.Matrix<T>, b: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func isOrthogonal<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isConvergentMatrix<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isRowDiagonallyDominant<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isColumnDiagonallyDominant<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isAbsoluteDiagonallyDominant<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func isZeroMatrix<T>(A: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+  public static func elementMagnitudeInMatrix<T>(A: SwiftLAN.Matrix<T>) -> Swift.Int where T : SwiftLAN.GeneralizedElement
+  public static func angleBetweenVectors<T>(u: SwiftLAN.Matrix<T>, v: SwiftLAN.Matrix<T>) -> (radians: T, degrees: T) where T : SwiftLAN.GeneralizedElement
+  public static func crossProductVector<T>(u: SwiftLAN.Matrix<T>, v: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func orthogonalProjectionUontoV<T>(u: SwiftLAN.Matrix<T>, v: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func meanOfVector<T>(u: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func vectorCorrelation<T>(u: SwiftLAN.Matrix<T>, v: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func polynomialEvaluation<T>(c: [SwiftLAN.Complex<T>], x: SwiftLAN.Complex<T>) -> SwiftLAN.Complex<T> where T : SwiftLAN.GeneralizedElement
+  public static func absComplex<T>(x: SwiftLAN.Complex<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func dividePwMatrix<T>(matrixA: SwiftLAN.Matrix<T>, matrixB: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func sqrtComplex<T>(x: SwiftLAN.Complex<T>) -> SwiftLAN.Complex<T> where T : SwiftLAN.GeneralizedElement
+  public static func MullerRoots<T>(c: [SwiftLAN.Complex<T>], p0: SwiftLAN.Complex<T>, p1: SwiftLAN.Complex<T>, p2: SwiftLAN.Complex<T>) -> SwiftLAN.Complex<T> where T : SwiftLAN.GeneralizedElement
+  public static func polynomialDivision<T>(u: [SwiftLAN.Complex<T>], v: [SwiftLAN.Complex<T>]) -> ([SwiftLAN.Complex<T>], [SwiftLAN.Complex<T>]) where T : SwiftLAN.GeneralizedElement
+  public static func CharacteristicPolynomialRoots<T>(A: SwiftLAN.Matrix<T>) -> [SwiftLAN.Complex<T>] where T : SwiftLAN.GeneralizedElement
+  public static func RealToComplex<T>(Areal: SwiftLAN.Matrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func cheb<T>(n: Swift.Int) -> (D: SwiftLAN.Matrix<T>, x: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func FundemantalSubspaces<T>(A: SwiftLAN.Matrix<T>) -> (Range: SwiftLAN.Matrix<T>, Nullspace: SwiftLAN.Matrix<T>, Range_T: SwiftLAN.Matrix<T>, Nullspace_T: SwiftLAN.Matrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func sortPolyCoefficients<T>(c: SwiftLAN.Matrix<T>) -> [SwiftLAN.Complex<T>] where T : SwiftLAN.GeneralizedElement
+  public static func isToeplitz<T>(matrix: SwiftLAN.Matrix<T>) -> Swift.Bool where T : SwiftLAN.GeneralizedElement
+}
+public struct Matrix<Scalar> : Swift.Codable where Scalar : SwiftLAN.GeneralizedElement {
+  public typealias Rational = (num: Swift.Int, den: Swift.Int)
+  public enum Shape : Swift.Equatable {
+    case wide
+    case tall
+    case square
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: SwiftLAN.Matrix<Scalar>.Shape, b: SwiftLAN.Matrix<Scalar>.Shape) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let rows: Swift.Int
+  public let columns: Swift.Int
+  public var name: Swift.String
+  public var elements: [Scalar]
+  public var shape: SwiftLAN.Matrix<Scalar>.Shape {
+    get
+  }
+  public init(rows: Swift.Int, columns: Swift.Int, repeatedElement: Scalar)
+  public init<T, U>(_ contents: T) where Scalar == U.Element, T : Swift.Collection, U : Swift.Collection, U == T.Element
+  public init(row: [Scalar])
+  public init(column: [Scalar])
+  public init(rows: Swift.Int, columns: Swift.Int, elements: [Scalar])
+  public init(rows: Swift.Int, columns: Swift.Int, _ closure: (_ row: Swift.Int, _ column: Swift.Int) throws -> Scalar) rethrows
+  public static func identity(size: Swift.Int) -> SwiftLAN.Matrix<Scalar>
+  public static func eye(rows: Swift.Int, columns: Swift.Int) -> SwiftLAN.Matrix<Scalar>
+  public static func diagonal(rows: Swift.Int, columns: Swift.Int, repeatedElement: Scalar) -> SwiftLAN.Matrix<Scalar>
+  public static func diagonal<T>(rows: Swift.Int, columns: Swift.Int, scalars: T) -> SwiftLAN.Matrix<Scalar> where Scalar == T.Element, T : Swift.Collection
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol GeneralizedElement : Swift.BinaryFloatingPoint, Swift.Decodable, Swift.Encodable {
+}
+public struct Complex<Scalar> : Swift.Equatable, Swift.Hashable, Swift.CustomStringConvertible where Scalar : SwiftLAN.GeneralizedElement {
+  public var x: Scalar
+  public var y: Scalar
+  public init()
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct ComplexMatrix<Scalar> where Scalar : SwiftLAN.GeneralizedElement {
+  public static func complexTranspose<T>(A: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func multiplyComplexMatrix<T>(matrixA: SwiftLAN.ComplexMatrix<T>, matrixB: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func diagonalComplexMatrix<T>(A: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func complexAbsoluteValue<T>(lambda: SwiftLAN.Complex<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func mprintComplex<T>(matrixA: SwiftLAN.ComplexMatrix<T>, decimalPlaces: Swift.Int) where T : SwiftLAN.GeneralizedElement
+  public static func conjugateTransposeVector<T>(vectorX: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func sortEigenpairs<T>(values: SwiftLAN.ComplexMatrix<T>, vectors: SwiftLAN.Matrix<T>) -> (SwiftLAN.ComplexMatrix<T>, SwiftLAN.ComplexMatrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func normalizeEigenVectors<T>(V: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func getComplexMatrixColumn<T>(A: SwiftLAN.ComplexMatrix<T>, k: Swift.Int) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func complexVectorNorm<T>(vectorX: SwiftLAN.ComplexMatrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func subtractComplexMatrix(matrixA: SwiftLAN.ComplexMatrix<Scalar>, matrixB: SwiftLAN.ComplexMatrix<Scalar>) -> SwiftLAN.ComplexMatrix<Scalar>
+}
+extension SwiftLAN.Matrix.Shape : Swift.Hashable {}
