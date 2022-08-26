@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		C1sQjzYyfSg/np53gN0lgKP/jhQ=
+		AqcxWUMuOR9SS2TZZuzIPMtGCb4=
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wr2QehW8J47CWHOphEby5kVWkQc=
+		MWE1E/cJyyvPBO4ns2Uhaay1wU0=
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		cfn6xDEDYpx1Th0XPRbRn1SGNMQ=
+		R3Nc9yAU6n72HSr6JugjW6Zq5qw=
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		I7YP5mhOfqj70cDIZpPhS31wzmo=
+		DPimZMLFK8ZiqzwBnFcelOXj/bA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -61,14 +61,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LeeXfpbU8Gq4fiHAnEKzwhbolfnncQpwvj+DlWUCD+E=
+			3Ki+vHacVRcsnUmslouwCyFnnKLgU00GAHy5XOp8myU=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zliVAq4MLMtVvkT+sTnbz/3/VhIfHvY0/xDZNar401I=
+			rFyZScv7zfSy75ls/K7aVdxCNd/LLqY5GoWW2uIaLwE=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -82,14 +82,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bfy/2z1x7yIiB9BRZ6D4/SvDdtFSkXItbuuNmiBj9ho=
+			6iZDctWYCsj7g6liG5Rm7HMoCV1Nd3fiXbsV/INR5nI=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GJGD25UbrE5xUtSBQ61RuT+v/nGgILqjB7AcaFz+kt4=
+			KryA3gBFJ1pR6T2JqRECNOEt87nNiQTJwBSIqfTijVE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -29,14 +29,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CezmYSmUED8dbZV66I6JAYJaFep1uiaIUekMcoNEO2g=
+			p1e83Zj+QPYbVcH7fUAEWvt6mC8aULCCaAnrSpcMyso=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Zl9yFerl6f6PyaEWf/TOsPXS2CfIrRy1zxzwiMcAFQ8=
+			uJGaih2LlG51KDIfsHzSQMxUl/hjnXCW6Vop3mSYgOQ=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -50,14 +50,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DJj8BfcCF6gxYASh3+D4EzljbimXHg6Diu5+4w1urpE=
+			K0sMDD3P4TjBD1FrrIJvBqu5rjOvgs/lN5q7Iq/8Y6M=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1r+v3vl5zq9lQkix2iAaXDkWFJdHpD6vavbsPs5wcXw=
+			yTX1kNWv9A0yeF/fLm/fbt1zTr/iSmCvIxa3Y4xavcI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

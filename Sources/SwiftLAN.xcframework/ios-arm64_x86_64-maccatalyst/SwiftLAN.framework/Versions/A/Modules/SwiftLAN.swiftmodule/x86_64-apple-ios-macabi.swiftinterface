@@ -151,7 +151,7 @@ extension SwiftLAN.Matrix {
   public static func SIGN<T>(a: T, b: T) -> T where T : SwiftLAN.GeneralizedElement
   public static func reshape_v2<T>(target: SwiftLAN.Matrix<T>, rowFrom: Swift.Int, rowTo: Swift.Int, colFrom: Swift.Int, colTo: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
   public static func powerMatrix<T>(A: SwiftLAN.Matrix<T>, pow: Swift.Int) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func norm<T>(target: SwiftLAN.Matrix<T>, type: Swift.String) -> T where T : SwiftLAN.GeneralizedElement
+  public static func norm<T>(target: SwiftLAN.Matrix<T>, type: SwiftLAN.Matrix<Scalar>.NormType) -> T where T : SwiftLAN.GeneralizedElement
   public static func Transpose<T>(matrix: SwiftLAN.Matrix<T>) -> SwiftLAN.Matrix<T> where T : SwiftLAN.GeneralizedElement
   public static func SpectralRadius<T>(A: SwiftLAN.Matrix<T>) -> T where T : SwiftLAN.GeneralizedElement
   public static func EigenPairsRealSchurWithExceptionalShift<T>(A: SwiftLAN.Matrix<T>) -> (eigenvalues: SwiftLAN.ComplexMatrix<T>, eigenvectors: SwiftLAN.ComplexMatrix<T>) where T : SwiftLAN.GeneralizedElement
@@ -267,6 +267,17 @@ public struct Matrix<Scalar> : Swift.Codable where Scalar : SwiftLAN.Generalized
       get
     }
   }
+  public enum NormType : Swift.Equatable {
+    case l1
+    case l2
+    case infinity
+    case frobenius
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: SwiftLAN.Matrix<Scalar>.NormType, b: SwiftLAN.Matrix<Scalar>.NormType) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
   public let rows: Swift.Int
   public let columns: Swift.Int
   public var name: Swift.String
@@ -309,3 +320,4 @@ public struct ComplexMatrix<Scalar> where Scalar : SwiftLAN.GeneralizedElement {
   public static func subtractComplexMatrix(matrixA: SwiftLAN.ComplexMatrix<Scalar>, matrixB: SwiftLAN.ComplexMatrix<Scalar>) -> SwiftLAN.ComplexMatrix<Scalar>
 }
 extension SwiftLAN.Matrix.Shape : Swift.Hashable {}
+extension SwiftLAN.Matrix.NormType : Swift.Hashable {}
