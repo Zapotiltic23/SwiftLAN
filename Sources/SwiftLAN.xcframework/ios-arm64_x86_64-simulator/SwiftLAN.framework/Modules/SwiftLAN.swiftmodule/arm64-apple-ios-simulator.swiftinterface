@@ -75,6 +75,25 @@ extension SwiftLAN.Matrix : Swift.Equatable {
     set
   }
 }
+extension SwiftLAN.ComplexMatrix {
+  public static func * (c1: SwiftLAN.ComplexMatrix<Scalar>, c2: SwiftLAN.ComplexMatrix<Scalar>) -> SwiftLAN.ComplexMatrix<Scalar>
+  postfix public static func <<< (A: SwiftLAN.ComplexMatrix<Scalar>)
+  postfix public static func << (A: SwiftLAN.ComplexMatrix<Scalar>)
+  postfix public static func < (A: SwiftLAN.ComplexMatrix<Scalar>)
+}
+extension SwiftLAN.ComplexMatrix {
+  public static func complexTranspose<T>(A: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func multiplyComplexMatrix<T>(matrixA: SwiftLAN.ComplexMatrix<T>, matrixB: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func diagonalComplexMatrix<T>(A: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func complexAbsoluteValue<T>(lambda: SwiftLAN.Complex<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func mprintComplex<T>(matrixA: SwiftLAN.ComplexMatrix<T>, decimalPlaces: Swift.Int) where T : SwiftLAN.GeneralizedElement
+  public static func conjugateTransposeVector<T>(vectorX: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func sortEigenpairs<T>(values: SwiftLAN.ComplexMatrix<T>, vectors: SwiftLAN.Matrix<T>) -> (SwiftLAN.ComplexMatrix<T>, SwiftLAN.ComplexMatrix<T>) where T : SwiftLAN.GeneralizedElement
+  public static func normalizeEigenVectors<T>(V: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func getComplexMatrixColumn<T>(A: SwiftLAN.ComplexMatrix<T>, k: Swift.Int) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
+  public static func complexVectorNorm<T>(vectorX: SwiftLAN.ComplexMatrix<T>) -> T where T : SwiftLAN.GeneralizedElement
+  public static func subtractComplexMatrix(matrixA: SwiftLAN.ComplexMatrix<Scalar>, matrixB: SwiftLAN.ComplexMatrix<Scalar>) -> SwiftLAN.ComplexMatrix<Scalar>
+}
 extension SwiftLAN.Complex {
   public var real: Scalar {
     get
@@ -307,17 +326,42 @@ public struct Complex<Scalar> : Swift.Equatable, Swift.Hashable, Swift.CustomStr
   public func hash(into hasher: inout Swift.Hasher)
 }
 public struct ComplexMatrix<Scalar> where Scalar : SwiftLAN.GeneralizedElement {
-  public static func complexTranspose<T>(A: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func multiplyComplexMatrix<T>(matrixA: SwiftLAN.ComplexMatrix<T>, matrixB: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func diagonalComplexMatrix<T>(A: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func complexAbsoluteValue<T>(lambda: SwiftLAN.Complex<T>) -> T where T : SwiftLAN.GeneralizedElement
-  public static func mprintComplex<T>(matrixA: SwiftLAN.ComplexMatrix<T>, decimalPlaces: Swift.Int) where T : SwiftLAN.GeneralizedElement
-  public static func conjugateTransposeVector<T>(vectorX: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func sortEigenpairs<T>(values: SwiftLAN.ComplexMatrix<T>, vectors: SwiftLAN.Matrix<T>) -> (SwiftLAN.ComplexMatrix<T>, SwiftLAN.ComplexMatrix<T>) where T : SwiftLAN.GeneralizedElement
-  public static func normalizeEigenVectors<T>(V: SwiftLAN.ComplexMatrix<T>) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func getComplexMatrixColumn<T>(A: SwiftLAN.ComplexMatrix<T>, k: Swift.Int) -> SwiftLAN.ComplexMatrix<T> where T : SwiftLAN.GeneralizedElement
-  public static func complexVectorNorm<T>(vectorX: SwiftLAN.ComplexMatrix<T>) -> T where T : SwiftLAN.GeneralizedElement
-  public static func subtractComplexMatrix(matrixA: SwiftLAN.ComplexMatrix<Scalar>, matrixB: SwiftLAN.ComplexMatrix<Scalar>) -> SwiftLAN.ComplexMatrix<Scalar>
+  public typealias Rational = (num: Swift.Int, den: Swift.Int)
+  public enum Shape : Swift.Equatable {
+    case wide
+    case tall
+    case square
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: SwiftLAN.ComplexMatrix<Scalar>.Shape, b: SwiftLAN.ComplexMatrix<Scalar>.Shape) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum NormType : Swift.Equatable {
+    case l1
+    case l2
+    case infinity
+    case frobenius
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: SwiftLAN.ComplexMatrix<Scalar>.NormType, b: SwiftLAN.ComplexMatrix<Scalar>.NormType) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let rows: Swift.Int
+  public let columns: Swift.Int
+  public var name: Swift.String
+  public var grid: [SwiftLAN.Complex<Scalar>]
+  public init(rows: Swift.Int, columns: Swift.Int)
+  public init(identityRows: Swift.Int, identityColumns: Swift.Int)
+  public init(onesRows: Swift.Int, onesColumns: Swift.Int)
+  public init(randRows: Swift.Int, randColumns: Swift.Int)
+  public subscript(row: Swift.Int, column: Swift.Int) -> SwiftLAN.Complex<Scalar> {
+    get
+    set
+  }
 }
 extension SwiftLAN.Matrix.Shape : Swift.Hashable {}
 extension SwiftLAN.Matrix.NormType : Swift.Hashable {}
+extension SwiftLAN.ComplexMatrix.Shape : Swift.Hashable {}
+extension SwiftLAN.ComplexMatrix.NormType : Swift.Hashable {}
