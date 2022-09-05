@@ -352,7 +352,19 @@ public struct ComplexMatrix<Scalar> where Scalar : SwiftLAN.GeneralizedElement {
   public let columns: Swift.Int
   public var name: Swift.String
   public var grid: [SwiftLAN.Complex<Scalar>]
+  public var realMatrix: SwiftLAN.Matrix<Scalar> {
+    get
+  }
+  public var shape: SwiftLAN.ComplexMatrix<Scalar>.Shape {
+    get
+  }
+  public init(rows: Swift.Int, columns: Swift.Int, repeatedElement: SwiftLAN.Complex<Scalar>)
+  public init<T, U>(_ contents: T) where T : Swift.Collection, U : Swift.Collection, U == T.Element, U.Element == SwiftLAN.Complex<Scalar>
+  public init(row: [SwiftLAN.Complex<Scalar>])
+  public init(column: [SwiftLAN.Complex<Scalar>])
   public init(rows: Swift.Int, columns: Swift.Int)
+  public init(rows: Swift.Int, columns: Swift.Int, elements: [SwiftLAN.Complex<Scalar>])
+  public init(rows: Swift.Int, columns: Swift.Int, _ closure: (_ row: Swift.Int, _ column: Swift.Int) throws -> SwiftLAN.Complex<Scalar>) rethrows
   public init(identityRows: Swift.Int, identityColumns: Swift.Int)
   public init(onesRows: Swift.Int, onesColumns: Swift.Int)
   public init(randRows: Swift.Int, randColumns: Swift.Int)
