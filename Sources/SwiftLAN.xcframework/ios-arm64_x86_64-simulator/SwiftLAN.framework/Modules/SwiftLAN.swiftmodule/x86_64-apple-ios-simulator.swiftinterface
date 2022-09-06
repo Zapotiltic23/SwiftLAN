@@ -319,13 +319,15 @@ public struct Matrix<Scalar> : Swift.Codable where Scalar : SwiftLAN.Generalized
 }
 public protocol GeneralizedElement : Swift.BinaryFloatingPoint, Swift.Decodable, Swift.Encodable {
 }
-public struct Complex<Scalar> : Swift.Equatable, Swift.Hashable, Swift.CustomStringConvertible where Scalar : SwiftLAN.GeneralizedElement {
+public struct Complex<Scalar> : Swift.Equatable, Swift.Hashable, Swift.CustomStringConvertible, Swift.Codable where Scalar : SwiftLAN.GeneralizedElement {
   public var x: Scalar
   public var y: Scalar
   public init()
   public func hash(into hasher: inout Swift.Hasher)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-public struct ComplexMatrix<Scalar> where Scalar : SwiftLAN.GeneralizedElement {
+public struct ComplexMatrix<Scalar> : Swift.Codable where Scalar : SwiftLAN.GeneralizedElement {
   public typealias Rational = (num: Swift.Int, den: Swift.Int)
   public enum Shape : Swift.Equatable {
     case wide
@@ -372,6 +374,8 @@ public struct ComplexMatrix<Scalar> where Scalar : SwiftLAN.GeneralizedElement {
     get
     set
   }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension SwiftLAN.Matrix.Shape : Swift.Hashable {}
 extension SwiftLAN.Matrix.NormType : Swift.Hashable {}
