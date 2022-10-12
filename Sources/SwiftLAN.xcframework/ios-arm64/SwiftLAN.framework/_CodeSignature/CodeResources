@@ -6,23 +6,31 @@
 	<dict>
 		<key>Headers/SwiftLAN-Swift.h</key>
 		<data>
-		irMie+U3iNA6ObXdnP23FDV8RHQ=
+		D8rvTUcrlry66XwrX51QkOEMXd0=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		HWqREg1HCYqkWsYsFHuBdvhh+EQ=
+		C8b/GDUxbTFSKRyJ2S/WY5Pzqvs=
+		</data>
+		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.abi.json</key>
+		<data>
+		UC+y2vNgvaTzfg7W2zJQrZUSEP8=
+		</data>
+		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<data>
+		xUdzMqzsz7HzsyCnC0o+kEqLJ+I=
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		l02T3abxg3pFI+baAC9bdFYG0Rg=
+		FW1ey+H5K0RmUWeQZGD++EwT2Lc=
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		gI7VRqwypW51wEnEnGzMFEqkYNo=
+		xUdzMqzsz7HzsyCnC0o+kEqLJ+I=
 		</data>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		awTGc/ZljXW12/SWHDdlJrbhUFU=
+		OiBztbRUNSrzr3dps0KwIximnFY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,28 +43,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u0Ka3vHPUCOwWVBHyBE+AbTInpzXEnV2/15HYQ/eSZw=
+			YKWY1PdfEOXF7HmNej6+nEaZ+ahbdx9rUIAyqsGT3Pc=
+			</data>
+		</dict>
+		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			stsscAIiiamxukM6SEuAOzJGOjXIw8tQMxlnnStdJFU=
+			</data>
+		</dict>
+		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xzIUm/OIiizICwP7zXQgmioGgGL4PyMHQ5n/OrzBk20=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0CtyHmQimdloZQN81ga3lD0ahtnRyaZOFSLYqnzArKM=
+			npP3b24a+mY89yWXa7CyJ8MYxAUs0goDUit7m2SFRwM=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vQse5UdelRTDJhaSnSYRRZ6KcNXYNqd92NxDbH6xSyM=
+			xzIUm/OIiizICwP7zXQgmioGgGL4PyMHQ5n/OrzBk20=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hgZvKB7X/qt45AW1zoMny1con/Jh/bMbCPQUkCeHpeE=
+			KWfDY0T2CjUZCKJeT1dfg7cu3+KoPApikILEVtlMXu4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

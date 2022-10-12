@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		o7rX5QhY2OCdabGE9oiyDFxZSV4=
+		/gE+oWrEWHAyEIM7ZvM0sUCVoM4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -15,49 +15,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ga2qhKL3AFzAfyN5pvfWjK1z1i7c47+o1N56yYXU0P8=
+			6JuxVoszGGUxO1kB6xlHhzY8vNzxegO2vjSyz4dNM6A=
+			</data>
+		</dict>
+		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gQTiHDdK4e6Uqp6I5Xq27T4nq4gAmn+VcZot2Wej+m0=
+			</data>
+		</dict>
+		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RHLJD0mw0FxiNQjUr2tBF0lTXAc6NDOZIr5bXUStIIA=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vbfnp/AG70D68I0kwru1Oc+YCIjEVFqFL1jbE5c2dHA=
+			djoABxXP1Pb4QWy28c3TZyolE/LmdtGfuPt8mLiapoA=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2TcL32n4RLm/YCpV6yNW0fTq/PiJVSg1u/MgYEP/zPA=
+			RHLJD0mw0FxiNQjUr2tBF0lTXAc6NDOZIr5bXUStIIA=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pLW/enJnBmPfbDisS2UAbtSfDkRagI4TU27UKhbrUqo=
+			5BNhSQlQj0oAW3nXDZOCcOme7KT457/4cjH4Pb0xEGE=
+			</data>
+		</dict>
+		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gQTiHDdK4e6Uqp6I5Xq27T4nq4gAmn+VcZot2Wej+m0=
+			</data>
+		</dict>
+		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/auzidBxluiXYYX2nwIeBaMukb7Zsf4VC69m16qyH8Q=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+GjkPIGvAjsDTf7YvOGxA4XaYY0Qma9dmkanPotlLjc=
+			5SseisD2heZ5y5soJS8ThAxZfV5r38FJPtkx8Tzkrw4=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xUAFC2T/73RUkP7mvDKmpZOTvPcwGJshOK30hYlM9tI=
+			/auzidBxluiXYYX2nwIeBaMukb7Zsf4VC69m16qyH8Q=
 			</data>
 		</dict>
 		<key>Modules/SwiftLAN.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oEUWdsqqwyTIM2mspuCxHB0bEiW4rTr0iR0IQO/8zo4=
+			xH5aWHTW3DHSQyKtM+b6EczE+jp7OhM/13b5QMnrXY0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -71,7 +99,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fANHYodwCI+k+x82PGyWdY3k+5e2rjG0inEvMO7IdvI=
+			UPcr/M0zVGI0POx1xO+WI9QWYTcJdkX5JyCc7jYESms=
 			</data>
 		</dict>
 	</dict>
